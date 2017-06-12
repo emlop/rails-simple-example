@@ -1,0 +1,24 @@
+<h1>Listing School Supplies:</h1>
+ 
+ <%= link_to 'New Supplies', new_supply_path %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @supplies.each do |supply| %>
+    <tr>
+      <td><%= supply.title %></td>
+      <td><%= supply.text %></td>
+      <td><%= link_to 'Expand', supply_path(supply) %></td>
+      <td><%= link_to 'Edit', edit_supply_path(supply) %></td>
+      <td><%= link_to 'Delete', supply_path(supply),
+      method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+
+</table>
